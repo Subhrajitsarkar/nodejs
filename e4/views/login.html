@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login</title>
+</head>
+<body>
+   <h1>Login</h1>
+   <form id="loginForm" action="/admin/login" method="post">
+       <input type="text" id="username" name="username" placeholder="Enter your username">
+       <button type="submit">Login</button>
+   </form>
+
+   <script>
+       const loginForm = document.getElementById('loginForm');
+       const usernameInput = document.getElementById('username');
+
+       loginForm.addEventListener('submit', (e) => {
+           e.preventDefault();
+           const username = usernameInput.value;
+
+           // Store username in local storage
+           localStorage.setItem('username', username);
+
+           // Redirect to the /message page
+           window.location.href = '/message';
+       });
+   </script>
+</body>
+</html>
+
